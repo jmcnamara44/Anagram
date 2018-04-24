@@ -11,6 +11,7 @@ namespace Anagram.Tests
     public void Dispose()
     {
       Word.ClearAll();
+      Word.ClearAllSortedItems();
     }
     [TestMethod]
     public void ReturnWord_ReturnsWord_Word()
@@ -42,6 +43,32 @@ namespace Anagram.Tests
       newWord3.Save();
       List<Word> testList = new List<Word> { newWord1, newWord2, newWord3 };
       List<Word> result = Word.GetAll();
+      CollectionAssert.AreEqual(testList, result);
+    }
+    [TestMethod]
+    public void ReturnWord_ReturnsAllWordsSorted_WordsListSorted()
+    {
+      string testString1 = "zebra";
+      string testString2 = "bad";
+      string testString3 = "aberz";
+      string testString4 = "abd";
+      Word newWord1 = new Word(testString1);
+      newWord1.Save();
+      Word newWord2 = new Word(testString2);
+      newWord2.Save();
+      Word newWord3 = new Word(testString3);
+      Word newWord4 = new Word(testString4);
+      List<Word> testList = new List<Word> { newWord3, newWord4 };
+      Word.SortList();
+      List<Word> result = Word.GetAllSortedItems();
+      foreach (Word word in result)
+      {
+        Console.WriteLine("Output: " + word.GetWord());
+      }
+      foreach (Word word in testList)
+      {
+        Console.WriteLine("Control Output: " + word.GetWord());
+      }
       CollectionAssert.AreEqual(testList, result);
     }
   }

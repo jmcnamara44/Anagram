@@ -15,6 +15,7 @@ _When the user enters their word they should receive that word back in alphabeti
 _When the user enters a word and a list of words they should receive those words back._
 _When the user enters their words they should receive those words back sorted alphabetically._
 _When the user enters their words they should see in the list which words are anagrams of the first word._
+_The user does not need to make their words case sensitive to check if it is an anagram with another word._
 
 
 ## Setup/Installation Requirements
