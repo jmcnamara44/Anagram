@@ -11,7 +11,7 @@ _This project will use C# to test different specs of the webpage._
 ## Project Specs
 
 _When the user enters a word they should receive that word back._
-_When the user enters their words they should receive those words back._
+_When the user enters their word they should receive that word back in alphabetical order._
 _When the user enters a word and a list of words they should receive those words back._
 _When the user enters their words they should receive those words back sorted alphabetically._
 _When the user enters their words they should see in the list which words are anagrams of the first word._

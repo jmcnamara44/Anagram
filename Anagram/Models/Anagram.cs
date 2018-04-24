@@ -27,6 +27,13 @@ namespace Anagram.Models
         {
           _words.Add(this);
         }
-
+        public static List<Word> GetAll()
+        {
+          return _words;
+        }
+        public static void ClearAll()
+        {
+          _words.Clear();
+        }
     }
 }

@@ -1,12 +1,17 @@
-
+using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Anagram.Models;
 
 namespace Anagram.Tests
 {
   [TestClass]
-  public class AnagramTest
+  public class AnagramTest : IDisposable
   {
+    public void Dispose()
+    {
+      Word.ClearAll();
+    }
     [TestMethod]
     public void ReturnWord_ReturnsWord_Word()
     {
@@ -22,6 +27,22 @@ namespace Anagram.Tests
       Word test = new Word(testWord1);
       string testWord2 = "dehi";
       Assert.AreEqual(testWord2, test.ReturnWord(test.GetWord()));
+    }
+    [TestMethod]
+    public void ReturnWord_ReturnsAllWords_WordsList()
+    {
+      string testString1 = "abc";
+      string testString2 = "def";
+      string testString3 = "ghi";
+      Word newWord1 = new Word(testString1);
+      newWord1.Save();
+      Word newWord2 = new Word(testString2);
+      newWord2.Save();
+      Word newWord3 = new Word(testString3);
+      newWord3.Save();
+      List<Word> testList = new List<Word> { newWord1, newWord2, newWord3 };
+      List<Word> result = Word.GetAll();
+      CollectionAssert.AreEqual(testList, result);
     }
   }
 }
