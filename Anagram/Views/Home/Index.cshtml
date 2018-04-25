@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+<h2>Anagrams and their peers.</h2>
+<form action="/check-anagrams" method="post">
+  <h3>Type in a word and a list of words to compare it to!</h3>
+  <div class="form-group">
+    <label for="single-word">Enter One Word</label>
+    <input id="single-word" name="single-word" class="form-control" type="text">
+  </div>
+  <div class="form-group">
+    <label for="first-word">Enter the first word of your list of words to compare to</label>
+    <input id="first-word" name="first-word" class="form-control" type="text">
+  </div>
+  <div class="form-group">
+    <label for="second-word">Enter the first word of your list of words to compare to</label>
+    <input id="second-word" name="second-word" class="form-control" type="text">
+  </div>
+  <div class="form-group">
+    <label for="third-word">Enter the first word of your list of words to compare to</label>
+    <input id="third-word" name="third-word" class="form-control" type="text">
+  </div>
+  <button class="btn btn-warning" type="submit">Find Out!</button>
+</form>

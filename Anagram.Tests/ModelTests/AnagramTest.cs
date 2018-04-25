@@ -88,12 +88,6 @@ namespace Anagram.Tests
       Word.SortList();
       List<Word> result = Word.GetAllSortedItems();
 
-      Console.WriteLine("Output: " + newWord.ReturnWord(newWord.GetWord()));
-      Console.WriteLine("Output: " + result[0].GetWord());
-      Console.WriteLine("Output: " + result[1].GetWord());
-      Console.WriteLine("Output: " + result[2].GetWord());
-      Console.WriteLine("Output: " + result[3].GetWord());
-      Console.WriteLine("Output: " + result[4].GetWord());
       Assert.AreEqual(newWord.ReturnWord(newWord.GetWord()), result[0].GetWord());
       Assert.AreEqual(newWord.ReturnWord(newWord.GetWord()), result[1].GetWord());
       Assert.AreNotEqual(newWord.ReturnWord(newWord.GetWord()), result[2].GetWord());

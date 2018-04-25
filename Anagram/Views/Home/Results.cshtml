@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+<h3>Results</h3>
+<ul>
+  <li> is an anagram with:
+    <ul>
+      @foreach(var word in Model)
+      {
+        <li>@word.GetWord()</li>
+      }
+    </ul>
+  </li>
+</ul>
