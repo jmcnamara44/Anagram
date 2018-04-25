@@ -61,17 +61,44 @@ namespace Anagram.Tests
       List<Word> testList = new List<Word> { newWord3, newWord4 };
       Word.SortList();
       List<Word> result = Word.GetAllSortedItems();
-      // foreach (Word word in result)
-      // {
-        // Console.WriteLine(testList.Count);
-      // }
-      // foreach (Word word in testList)
-      // {
-        // Console.WriteLine(result.Count);
-      // }
       Assert.AreEqual(testList.Count, result.Count);
       Assert.AreEqual(testList[0].GetWord(), result[0].GetWord());
       Assert.AreEqual(testList[1].GetWord(), result[1].GetWord());
+    }
+    [TestMethod]
+    public void SortListReturnWord_ComparesAllWordsSortedWithOriginalWord_AreEqual()
+    {
+      string controlString1 = "zebra";
+      Word newWord = new Word(controlString1);
+      string listString1 = "zbrea";
+      Word newListWord1 = new Word(listString1);
+      newListWord1.Save();
+      string listString2 = "brzea";
+      Word newListWord2 = new Word(listString2);
+      newListWord2.Save();
+      string listString3 = "zzbrea";
+      Word newListWord3 = new Word(listString3);
+      newListWord3.Save();
+      string listString4 = "brzeax";
+      Word newListWord4 = new Word(listString4);
+      newListWord4.Save();
+      string listString5 = "brzex";
+      Word newListWord5 = new Word(listString5);
+      newListWord5.Save();
+      Word.SortList();
+      List<Word> result = Word.GetAllSortedItems();
+
+      Console.WriteLine("Output: " + newWord.ReturnWord(newWord.GetWord()));
+      Console.WriteLine("Output: " + result[0].GetWord());
+      Console.WriteLine("Output: " + result[1].GetWord());
+      Console.WriteLine("Output: " + result[2].GetWord());
+      Console.WriteLine("Output: " + result[3].GetWord());
+      Console.WriteLine("Output: " + result[4].GetWord());
+      Assert.AreEqual(newWord.ReturnWord(newWord.GetWord()), result[0].GetWord());
+      Assert.AreEqual(newWord.ReturnWord(newWord.GetWord()), result[1].GetWord());
+      Assert.AreNotEqual(newWord.ReturnWord(newWord.GetWord()), result[2].GetWord());
+      Assert.AreNotEqual(newWord.ReturnWord(newWord.GetWord()), result[3].GetWord());
+      Assert.AreNotEqual(newWord.ReturnWord(newWord.GetWord()), result[4].GetWord());
     }
   }
 }
