@@ -40,15 +40,7 @@ namespace Anagram.Models
         }
         public static List<Word> GetAll()
         {
-          // for(int i=0; i<_words.Count; i++)
-          // {
-          // char[] newArray = _words[i].ToCharArray();
-          // Array.Sort(newArray);
-          // Word arrayItemToString = new Word(String.Join("", newArray));
-          // _words[i] = arrayItemToString;
-          // }
           return _words;
-
         }
         public static void ClearAll()
         {

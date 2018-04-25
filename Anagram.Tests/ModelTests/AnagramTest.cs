@@ -30,7 +30,7 @@ namespace Anagram.Tests
       Assert.AreEqual(testWord2, test.ReturnWord(test.GetWord()));
     }
     [TestMethod]
-    public void ReturnWord_ReturnsAllWords_WordsList()
+    public void GetAll_ReturnsAllWords_WordsList()
     {
       string testString1 = "abc";
       string testString2 = "def";
@@ -46,7 +46,7 @@ namespace Anagram.Tests
       CollectionAssert.AreEqual(testList, result);
     }
     [TestMethod]
-    public void ReturnWord_ReturnsAllWordsSorted_WordsListSorted()
+    public void SortList_ReturnsAllWordsSorted_WordsListSorted()
     {
       string testString1 = "zebra";
       string testString2 = "bad";
@@ -61,15 +61,17 @@ namespace Anagram.Tests
       List<Word> testList = new List<Word> { newWord3, newWord4 };
       Word.SortList();
       List<Word> result = Word.GetAllSortedItems();
-      foreach (Word word in result)
-      {
-        Console.WriteLine("Output: " + word.GetWord());
-      }
-      foreach (Word word in testList)
-      {
-        Console.WriteLine("Control Output: " + word.GetWord());
-      }
-      CollectionAssert.AreEqual(testList, result);
+      // foreach (Word word in result)
+      // {
+        // Console.WriteLine(testList.Count);
+      // }
+      // foreach (Word word in testList)
+      // {
+        // Console.WriteLine(result.Count);
+      // }
+      Assert.AreEqual(testList.Count, result.Count);
+      Assert.AreEqual(testList[0].GetWord(), result[0].GetWord());
+      Assert.AreEqual(testList[1].GetWord(), result[1].GetWord());
     }
   }
 }
