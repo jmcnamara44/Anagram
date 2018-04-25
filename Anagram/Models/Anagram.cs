@@ -47,6 +47,10 @@ namespace Anagram.Models
         {
           return _word;
         }
+        public void SetWord(string newWord)
+        {
+          _word = newWord;
+        }
         public void Save()
         {
           _words.Add(this);

@@ -3,9 +3,9 @@
 }
 <h3>Results</h3>
 <ul>
-  <li> is an anagram with:
+  <li>  @Model["word"].GetWord() is an anagram with:
     <ul>
-      @foreach(var word in Model)
+      @foreach(var word in Model["list"])
       {
         <li>@word.GetWord()</li>
       }

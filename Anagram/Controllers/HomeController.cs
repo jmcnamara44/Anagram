@@ -19,7 +19,11 @@ namespace Anagram.Controllers
         [HttpPost("/check-anagrams")]
         public ActionResult Results()
         {
+          Word.ClearAll();
+          Word.ClearAllSortedItems();
+          Word.ClearAllMatches();
 
+            Dictionary<string, object> model = new Dictionary<string, object> {};
             Word newWord = new Word(Request.Form["single-word"]);
             Word newWord1 = new Word(Request.Form["first-word"]);
             newWord1.Save();
@@ -31,7 +35,9 @@ namespace Anagram.Controllers
             Word sortedWord = new Word(newWord.ReturnWord(newWord.GetWord())); //takes the users first word and sorts it and saves it as a variable
             Word.CompareWords(sortedWord.GetWord()); //compares the sorted word that the user entered with words in the sorted list from
             List<Word> matchedList = Word.GetAllMatches();
-            return View(matchedList);
+            model.Add("word", newWord);
+            model.Add("list", matchedList);
+            return View(model);
         }
     }
 }
