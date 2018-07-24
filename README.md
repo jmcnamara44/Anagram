@@ -22,7 +22,10 @@ _The user does not need to make their words case sensitive to check if it is an 
 ## Setup/Installation Requirements
 
 * _Clone repository from GitHub_
-* _Open index.html file into your browser of choice_
+* _Start the MAMP servers._
+* _Navigate into the project folder and run 'dotnet restore'._
+* _Run the command 'dotnet run'._
+* _Type 'http://localhost:5000' into your web browser._
 
 ## Known Bugs
 
